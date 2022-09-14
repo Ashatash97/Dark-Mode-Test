@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <div id="legend2"></div>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+      <link id="pagestyle" rel="stylesheet" type="text/css" href="CSS/light.css"/>
+      <script data-require="d3@4.0.0" data-semver="4.0.0" src="https://d3js.org/d3.v4.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+      <script>
+        function swapStyleSheet (sheet) {
+          document.getElementById('pagestyle').setAttribute('href', sheet);
+        }
+
+//         // Do this before the body gets parsed
+//         if (localStorage.getItem('darkmode') === '0') {
+//           var theme = document.getElementsByTagName('link')[1];
+//        		theme.setAttribute('href', 'dark.css');
+//         }
+
+//         localStorage.getItem('darkmode') === '1')
+      </script>
+
+  </head>
+
+  <body id="rainbow" class="gradient-background">
+
+    <section>
+        <div class="topnav">
+          <a href="submit.html" onClick="swapStyleSheet">Submit</a>
+          <a href="about.html">About</a>
+          <a href="index.html">Library</a>
+        </div>
+    </section>
+
+    <section class="section-instructions">
+
+      <h1 class="homepage-title" id="homepage-title">Learn About An Influential <br> Asian American Woman</h1>
+      <p class="instructions" id="instructions"><u>Hover</u> to preview a person's name <br> <u>Click</u> to learn more </p>
+
+      <button class="toggleButtonHome" id="toggleButtonHome">☾</button>
+
+
+  <script>
+				document.querySelector('#toggleButtonHome').addEventListener('click', function() {
+          // Obtains an array of all <link>  elements.
+          // Select your element using indexing.
+          var theme = document.getElementsByTagName('link')[0];
+   				var btn = document.getElementById("toggleButtonHome");
+
+          // Change the value of href attribute
+          // to change the css sheet.
+          if (theme.getAttribute('href') == 'CSS/light.css') {
+            theme.setAttribute('href', 'CSS/dark.css');
+            btn.innerHTML = '☀';
+            //change chart colors to dark mode
+            svg.selectAll("text")
+              .transition()
+         			.duration(60)
+              .style("fill", "#fcd101");
+
+           svg.selectAll("circle").attr("stroke", "none");
+           nodeColor ="white";
+           mouseoverColor = "#fcd101";
+
+
+
+          } else {
+            theme.setAttribute('href', 'CSS/light.css');
+            btn.innerHTML = "☾";
+
+            svg.selectAll("text")
+              .transition()
+         			.duration(60)
+              .style("fill", "black");
+
+            svg.selectAll("circle")
+               .attr("fill", "white")
+               .attr("stroke", "black");
+
+            imgSrc.setAttribute('src', 'us_map_black.svg');
+            mouseoverColor = "black";
+
+          }
+        })
+  </script>
+
+  </body>
+		<script type="text/javascript" src="dark.js"></script>
+    <script src="d3.min.js"></script>
+
+</html>
